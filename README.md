@@ -1,46 +1,61 @@
-# 🏥 TriageFlow
+# TriageFlow
 
-Sistema de triagem inteligente para unidades de saúde, utilizando IA para otimizar o atendimento inicial de pacientes.
+Sistema de apoio à triagem inicial em unidades de saúde. Um totem coleta queixas e sinais vitais do paciente, o sistema sugere a prioridade de atendimento e a equipe de enfermagem valida antes do encaminhamento.
 
----
+> ⚠️ **Projeto em desenvolvimento.** Não é um dispositivo médico certificado e não deve ser usado em atendimento real.
 
-## 🚀 Como funciona
+## Como funciona
 
-1. **Chegada do paciente**
-   - O paciente utiliza um totem digital no local de atendimento.
+```mermaid
+flowchart LR
+    A[Paciente no totem] --> B[Queixas e sinais vitais]
+    B --> C[Sugestão de prioridade]
+    C --> D[Validação pela enfermagem]
+    D --> E[Fila da especialidade]
+    E --> F[Atendimento]
+```
 
-2. **Coleta de informações**
-   - A IA faz perguntas sobre sintomas e queixas.
-   - São coletados dados básicos como:
-     - Temperatura
-     - Pressão arterial
-     - Histórico médico (medicações, tipo sanguíneo, etc.)
+1. **Chegada:** o paciente inicia a triagem no totem, sem necessidade de cadastro prévio.
+2. **Coleta:** o totem registra as queixas, informações relevantes (condições pré-existentes, alergias, medicamentos em uso) e sinais vitais medidos por sensores.
+3. **Sugestão:** o sistema sugere prioridade e especialidade com base em regras de classificação de risco. Sinais de alarme geram alerta imediato para a equipe.
+4. **Validação:** um profissional de enfermagem confirma ou ajusta a classificação. A decisão final é sempre humana.
+5. **Fila:** o paciente entra na fila da especialidade, ordenada por prioridade e tempo de espera.
 
-3. **Análise inteligente**
-   - A IA analisa as respostas e identifica o nível de urgência.
+## Objetivo
 
-4. **Classificação de risco**
-   - O paciente é classificado por prioridade de atendimento.
+Reduzir o tempo até a classificação de risco, organizar as filas de atendimento e oferecer à equipe informações estruturadas desde o primeiro contato com o paciente.
 
-5. **Direcionamento**
-   - O sistema indica o profissional ou especialidade mais adequada disponível.
+## Status
 
-6. **Fila de atendimento**
-   - O paciente é encaminhado para a fila correta, de forma mais eficiente.
+🚧 Em concepção: arquitetura e requisitos definidos, desenvolvimento do MVP em início.
 
----
+## Stack
 
-## 🎯 Objetivo
+| Camada | Tecnologia |
+|---|---|
+| API | .NET (ASP.NET Core) |
+| Dashboards | React + TypeScript |
+| App do totem | Em avaliação |
+| Banco de dados | PostgreSQL |
 
-Reduzir o tempo de espera, melhorar a organização do atendimento e garantir que cada paciente seja atendido com a prioridade correta.
+## Estrutura do repositório
 
----
+```
+api/        API em .NET
+clientes/   dashboards e app do totem
+regras/     formato e casos de teste das regras de classificação
+infra/      configuração de implantação
+docs/       documentação técnica
+```
 
-## 💡 Benefícios
+## Como executar
 
-- Atendimento mais rápido e eficiente  
-- Melhor organização das filas  
-- Apoio à equipe médica  
-- Experiência mais fluida para o paciente  
+Em breve.
 
----
+## Documentação
+
+A documentação técnica (visão, requisitos, arquitetura e decisões) está em [`docs/`](docs/).
+
+## Licença
+
+A definir.
